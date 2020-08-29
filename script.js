@@ -5,19 +5,38 @@
 // var btnSpecies = $("#btnSpecies");
 // var btnMovies = $("#btnMovies");
 // var btnFacts = $("#btnFacts");
-// var randFacts = $("#btnFacts");
+var randFacts = $("#btnFacts");
 var randQuote = $("#randQuote");
 
-// console.log(randQuotes);
+// console.log(facts);
 
-$.ajax({
-    url: "http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote",
-    method: "GET"
-}).then(function(response) {
-    console.log(response);
-});
+getRandomFacts();
 
-// $.ajax({
-//     url: weatherUrl,
-//     method: "GET"
-// }).then(getForecast);
+function getRandomFacts() {
+    
+    for (let index = 0; index < 5; index++) {
+        let randomNumber = Math.floor(Math.random() * 30);
+        console.log(facts[randomNumber]);
+    }
+};
+
+
+
+
+
+//setRandQuote to append random quote string to DOM.
+function setRandQuote(response) {
+//    console.log(response.starWarsQuote);
+   randQuote.append($("<h1>" + response.starWarsQuote + "</h1>"));
+}
+
+//getRandQuote api call
+function getRandQuote() {
+    $.ajax({
+        url: "http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote",
+        method: "GET"
+    }).then(setRandQuote);
+};
+
+//running api call to get random quote.
+getRandQuote();
