@@ -16,10 +16,9 @@
             </div>
             <div class="uk-navbar-right">
               <ul class="uk-navbar-nav uk-visible@m">
-                <li class="uk-active"><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Our Services</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li class="uk-active"><a href="index.html">Home</a></li>
+                <li><a href="./aboutus.html">About Us</a></li>
+                <li><a href="./contactus.html">Contact Us</a></li>
               </ul>
               <div class="uk-navbar-item">
                 <a class="uk-navbar-toggle uk-hidden@m" data-uk-toggle data-uk-navbar-toggle-icon href="#offcanvas-nav"></a>
@@ -28,7 +27,7 @@
             </div>
           </nav>
         </div>
-      </header>
+    </header>
       <section class="uk-section uk-section-muted uk-padding-remove-bottom">
         <div class="uk-container uk-container-small">
           <header class="uk-text-center">
@@ -37,35 +36,54 @@
               <h1 className="display-3">Star Wars - Nerds Only!</h1>
               <p className="lead">Our mission is to continue to educate the world about all things Star Wars and never stop schooling nerds.</p>
             </Jumbotron>
-          </div>
+            </div>
           <div id="randQuote">
           </div>
         </section>
             <h1 style="text-align: center" class="uk-heading-primary">Join the Alliance!</h1>
             <p class="uk-width-3-5 uk-margin-auto">
                       </p>
-                    </header>
-                    <div id="searchSection" class="uk-card uk-align-left uk-card-body">
+                  </header>   
+                  <div class=container>         
+                    <div id="searchSection" class="uk-card uk-align-left  uk-card-body">
                         <form class="uk-search uk-search-large">
                           <form>
                             <div class="uk-margin">
                                 <input class="uk-input" type="text" placeholder="What are you looking for?">
                             </div>
-                    </form>
-                          <p uk-margin>
+                          </form>
+                            <p uk-margin>
                             <button id="btnPlanet" type="submit" class="uk-button uk-button-default uk-button-small" >Planets</button>
                             <button id="btnPeople" type="submit" class="uk-button uk-button-primary uk-button-small">People</button>
                             <button id="btnShips" type="submit" class="uk-button uk-button-secondary uk-button-small">Ships</button>
                             <button id="btnSpecies" type="submit" class="uk-button uk-button-danger uk-button-small">Species</button>
                             <button id="btnMovies" type="submit" class="uk-button uk-button-warning uk-button-small">Movies</button>
-                        </p>
-                      </form>
+                          </p>
+                        </form>
                       <div id="factSection" class="uk-container uk-container-large">
                         <button id="btnFacts" type="submit" class="uk-button uk-button-default uk-button-large">Random Fact!</button>
+                      </div>
                     </div>
-
+                    <div class=container>
+                      <div class="imgSection">
+                        <div class="uk-child-width-1-2@m" uk-grid>
+                            <div>
+                                <div class="uk-card uk-card-default">
+                                    <div class="uk-card-media-top">
+                                        <img class="searchImg" src="images/light.jpg" alt="">
+                                    </div>
+                                    <div class="uk-card-body searchContent">
+                                        <h3 class="uk-card-title searchTitle">Media Top</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-    <script src="./facts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit-icons.min.js"></script><script src="./facts.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
