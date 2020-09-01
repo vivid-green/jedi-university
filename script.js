@@ -4,9 +4,13 @@
 // var btnShips = $("#btnShips");
 // var btnSpecies = $("#btnSpecies");
 // var btnMovies = $("#btnMovies");
-// var btnFacts = $("#btnFacts");
-var randFacts = $("#btnFacts");
 var randQuote = $("#randQuote");
+var randFacts = $("#factSection");
+var btnFacts = $("#btnFacts");
+//hiding the button for facts from display.
+// btnFacts.css("display", "none");
+
+
 
 // console.log(facts);
 
@@ -14,11 +18,18 @@ getRandomFacts();
 
 //randomly selects facts from facts.js
 function getRandomFacts() {
-    
-    for (let index = 0; index < 5; index++) {
-        let randomNumber = Math.floor(Math.random() * 30);
-        console.log(facts[randomNumber]);
+    let factsUl = $("<ul>");
+    let randomChoices = [];
+    for(i = 0; i < 5; i++) {
+        let randomChoice = Math.floor(Math.random() * facts.length);
+        while(randomChoices.includes(randomChoice) || randomChoice === 5) {
+
+            randomChoice = Math.floor(Math.random() * facts.length);
+        }
+        randomChoices.push(randomChoice);
+        factsUl.append($("<li>" + facts[randomChoice] + "</li>"));
     }
+    randFacts.append(factsUl);
 };
 
 //setRandQuote to append random quote string to DOM.
