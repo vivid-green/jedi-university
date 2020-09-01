@@ -12,6 +12,7 @@ var randQuote = $("#randQuote");
 
 getRandomFacts();
 
+//randomly selects facts from facts.js
 function getRandomFacts() {
     
     for (let index = 0; index < 5; index++) {
@@ -19,10 +20,6 @@ function getRandomFacts() {
         console.log(facts[randomNumber]);
     }
 };
-
-
-
-
 
 //setRandQuote to append random quote string to DOM.
 function setRandQuote(response) {
