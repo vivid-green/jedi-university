@@ -1,24 +1,17 @@
-// var searchInput = $("#searchInput");
-// var btnPlanet = $("#btnPlanet");
-// var btnPeople = $("#btnPeople");
-// var btnShips = $("#btnShips");
-// var btnSpecies = $("#btnSpecies");
-// var btnMovies = $("#btnMovies");
+var searchInput = $("#searchInput");
+var btnPlanet = $("#btnPlanet");
+var btnPeople = $("#btnPeople");
+var btnShips = $("#btnShips");
+var btnSpecies = $("#btnSpecies");
+var btnMovies = $("#btnMovies");
 var randQuote = $("#randQuote");
 var randFacts = $("#factSection");
 var btnFacts = $("#btnFacts");
-//hiding the button for facts from display.
-// btnFacts.css("display", "none");
-
-
-
-// console.log(facts);
-
-getRandomFacts();
+let factsUl = $("<ul class='factsUl'>");
 
 //randomly selects facts from facts.js
 function getRandomFacts() {
-    let factsUl = $("<ul>");
+    factsUl.empty();
     let randomChoices = [];
     for(i = 0; i < 5; i++) {
         let randomChoice = Math.floor(Math.random() * facts.length);
@@ -48,3 +41,9 @@ function getRandQuote() {
 
 //running api call to get random quote.
 getRandQuote();
+
+//updating factSection with random facts.
+getRandomFacts();
+
+btnFacts.click(getRandomFacts);
+
