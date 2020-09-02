@@ -9,9 +9,18 @@ var randFacts = $("#factSection");
 var btnFacts = $("#btnFacts");
 let factsUl = $("<ul class='factsUl'>");
 let searchForm = $("form");
+let searchContent = $(".searchContent");
+let searchContentUl = $("<ul class='contentUl'>");
 
 function setSearchResults(response) {
-    console.log(response);
+    searchContentUl.empty();
+    searchContent.append(searchContentUl);
+    $.each(response.results[0], function(index,value) {
+        if(!Array.isArray(value)) {
+            searchContentUl.append($("<li>" + index + ": " + value + "</li>"));
+            // console.log(index + ": " + value);
+        }
+    })
 }
 
 function swapiUrl(event) {
