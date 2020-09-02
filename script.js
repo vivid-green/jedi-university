@@ -1,4 +1,4 @@
-var searchInput = $("#searchInput");
+var searchInput = $(".uk-input");
 var btnPlanet = $("#btnPlanet");
 var btnPeople = $("#btnPeople");
 var btnShips = $("#btnShips");
@@ -8,6 +8,28 @@ var randQuote = $("#randQuote");
 var randFacts = $("#factSection");
 var btnFacts = $("#btnFacts");
 let factsUl = $("<ul class='factsUl'>");
+let searchForm = $("form");
+
+//https://swapi.dev/api/people/?search=r2
+
+function swapiUrl(event) {
+    event.preventDefault();
+    console.log(this.id);
+    console.log(searchInput.val());
+
+    let baseUrl = "http://swapi.dev/api/";
+    let endpoint = this.id.replace("btn", "").toLowerCase();
+    let searchParam = searchInput.val();
+    let finalUrl = baseUrl + endpoint + "s" + "/?search=" + searchParam;
+    console.log(finalUrl);
+
+    $.ajax({
+        url: finalUrl,
+        method: "GET"
+    }).then(function(response) {
+        console.log(response);
+    });
+}
 
 //randomly selects facts from facts.js
 function getRandomFacts() {
@@ -46,4 +68,8 @@ getRandQuote();
 getRandomFacts();
 
 btnFacts.click(getRandomFacts);
+
+// $(document).on("click",".prev-cities",searchPrev);
+
+$(document).on("click", ".uk-button-small", swapiUrl);
 
