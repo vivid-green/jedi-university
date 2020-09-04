@@ -80,3 +80,19 @@ btnFacts.click(getRandomFacts);
 
 $(document).on("click", ".uk-button-small", swapiUrl);
 
+var giphyURL = "https://api.giphy.com/v1/gifs/search?q=" + searchInput + "&api_key=gY3zrTqndTT0ezYrpQwRhwMMv1DTt6pF" + "&limit=5";
+    $.ajax({
+        url: giphyURL,
+        method: "GET"
+    }).then(function(response) {
+        console.log(response);
+        console.log(response.data[0].images.fixed_height.url);
+        //   Depending on our approach... this could use this or a 'for' loop. 
+        var imageFinal = (response.data[0].images.fixed_height.url);
+        console.log("ImageFinal = " + imageFinal);
+        var insertImg = $("#??whatever??");
+        var image = $("<img>").attr("src", imageFinal);
+        insertImg.append(image);
+        console.log("Here is the link: " + giphyURL);
+    });
+
