@@ -34,7 +34,7 @@ function setSearchResults(response) {
 
 function swapiUrl(event) {
     event.preventDefault();
-    let baseUrl = "http://swapi.dev/api/";
+    let baseUrl = "https://swapi.dev/api/";
     let endpoint = $(this).data().type;
     let searchParam = searchInput.val();
     let finalUrl = baseUrl + endpoint + "/?search=" + searchParam;
@@ -69,7 +69,7 @@ function setRandQuote(response) {
 //getRandQuote api call
 function getRandQuote() {
     $.ajax({
-        url: "http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote",
+        url: "https://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote",
         method: "GET"
     }).then(setRandQuote);
 };
