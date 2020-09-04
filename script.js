@@ -1,15 +1,18 @@
-
 var searchInput = $(".uk-input");
 var btnPlanet = $("#btnPlanet");
+    btnPlanet.data("type", "planets");
 var btnPeople = $("#btnPeople");
+    btnPeople.data("type", "people");
 var btnShips = $("#btnShips");
+    btnShips.data("type", "starships");
 var btnSpecies = $("#btnSpecies");
+    btnSpecies.data("type", "species");
 var btnMovies = $("#btnMovies");
+    btnMovies.data("type", "films");
 var randQuote = $("#randQuote");
 var randFacts = $("#factSection");
 var btnFacts = $("#btnFacts");
 let factsUl = $("<ul class='factsUl'>");
-var imgURL = $(".media-top");
 let searchForm = $("form");
 let searchContent = $(".searchContent");
 let searchContentUl = $("<ul class='contentUl'>");
@@ -28,16 +31,7 @@ function setSearchResults(response) {
 function swapiUrl(event) {
     event.preventDefault();
     let baseUrl = "http://swapi.dev/api/";
-    let endpoint = this.id.replace("btn", "").toLowerCase();
-    if(endpoint === "planet") {
-        endpoint = endpoint + "s";
-    };
-    if(endpoint === "movies") {
-        endpoint = "films";
-    };
-    if(endpoint === "ships") {
-        endpoint = "starships";
-    };
+    let endpoint = $(this).data().type;
     let searchParam = searchInput.val();
     let finalUrl = baseUrl + endpoint + "/?search=" + searchParam;
     $.ajax({
@@ -52,7 +46,7 @@ function getRandomFacts() {
     let randomChoices = [];
     for(i = 0; i < 5; i++) {
         let randomChoice = Math.floor(Math.random() * facts.length);
-        while(randomChoices.includes(randomChoice) || randomChoice === 5) {
+        while(randomChoices.includes(randomChoice)) {
 
             randomChoice = Math.floor(Math.random() * facts.length);
         }
@@ -86,12 +80,7 @@ btnFacts.click(getRandomFacts);
 
 $(document).on("click", ".uk-button-small", swapiUrl);
 
-    // Newly added for the carousel and giphy 
-    // ----------------------------------------
-}
-
-    var giphyURL = "https://api.giphy.com/v1/gifs/search?q=" + searchInput + "&api_key=gY3zrTqndTT0ezYrpQwRhwMMv1DTt6pF" + "&limit=5";
-    
+var giphyURL = "https://api.giphy.com/v1/gifs/search?q=" + searchInput + "&api_key=gY3zrTqndTT0ezYrpQwRhwMMv1DTt6pF" + "&limit=5";
     $.ajax({
         url: giphyURL,
         method: "GET"
@@ -105,16 +94,4 @@ $(document).on("click", ".uk-button-small", swapiUrl);
         var image = $("<img>").attr("src", imageFinal);
         insertImg.append(image);
         console.log("Here is the link: " + giphyURL);
-    });
-        
-        //   Depending on our approach... this could use this or a 'for' loop. 
-        var imageFinal = (response.data[0].images.fixed_height.url);
-        console.log("ImageFinal = " + imageFinal);
-        
-        var insertImg = $("#??whatever??");
-        var image = $("<img>").attr("src", imageFinal);
-        
-        insertImg.append(image);
-        console.log("Here is the link: " + giphyURL);
-        
     });
