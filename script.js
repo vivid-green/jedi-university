@@ -20,8 +20,12 @@ let searchContentUl = $("<ul class='contentUl'>");
 function setSearchResults(response) {
     searchContentUl.empty();
     searchContent.append(searchContentUl);
+    delete response.results[0].created;
+    delete response.results[0].edited;
+    delete response.results[0].url;
     $.each(response.results[0], function(index,value) {
         if(!Array.isArray(value)) {
+
             searchContentUl.append($("<li>" + index + ": " + value + "</li>"));
             // console.log(index + ": " + value);
         }
