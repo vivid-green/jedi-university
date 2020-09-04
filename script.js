@@ -85,27 +85,6 @@ btnFacts.click(getRandomFacts);
 
 $(document).on("click", ".uk-button-small", swapiUrl);
 
-
-// New API Request for images
-function shUrl(event) {
-    event.preventDefault();
-    let shbaseUrl = "https://private-c6ffc8-starhub.apiary-mock.com/api/";
-    let shEndpoint = this.id.replace("btn", "").toLowerCase();
-    if(shEndpoint === "planet") {
-        shEndpoint = shEndpoint + "s";
-    };
-    
-    if(shEndpoint === "people") {
-        shEndpoint = "characters";
-    };
-    let shsearchParam = searchInput.val();
-    let shUrl = shbaseUrl + shEndpoint + "/?search=" + shsearchParam;
-    $.ajax({
-        url: finalUrl,
-        method: "GET"
-    }).then(setShSearchResults);
-    console.log("Use these:" + shbaseUrl + shEndpoint + "/?search=" + shsearchParam);
-    
     // Newly added for the carousel and giphy 
     // ----------------------------------------
 }
@@ -118,6 +97,14 @@ function shUrl(event) {
     }).then(function(response) {
         console.log(response);
         console.log(response.data[0].images.fixed_height.url);
+        //   Depending on our approach... this could use this or a 'for' loop. 
+        var imageFinal = (response.data[0].images.fixed_height.url);
+        console.log("ImageFinal = " + imageFinal);
+        var insertImg = $("#??whatever??");
+        var image = $("<img>").attr("src", imageFinal);
+        insertImg.append(image);
+        console.log("Here is the link: " + giphyURL);
+    });
         
         //   Depending on our approach... this could use this or a 'for' loop. 
         var imageFinal = (response.data[0].images.fixed_height.url);
