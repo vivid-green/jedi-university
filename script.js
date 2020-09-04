@@ -1,21 +1,27 @@
-var searchInput = $(".uk-input");
-var btnPlanet = $("#btnPlanet");
+let searchInput = $(".uk-input");
+let btnPlanet = $("#btnPlanet");
     btnPlanet.data("type", "planets");
-var btnPeople = $("#btnPeople");
+let btnPeople = $("#btnPeople");
     btnPeople.data("type", "people");
-var btnShips = $("#btnShips");
+let btnShips = $("#btnShips");
     btnShips.data("type", "starships");
-var btnSpecies = $("#btnSpecies");
+let btnSpecies = $("#btnSpecies");
     btnSpecies.data("type", "species");
-var btnMovies = $("#btnMovies");
+let btnMovies = $("#btnMovies");
     btnMovies.data("type", "films");
-var randQuote = $("#randQuote");
-var randFacts = $("#factSection");
-var btnFacts = $("#btnFacts");
+let randQuote = $("#randQuote");
+let randFacts = $("#factSection");
+let btnFacts = $("#btnFacts");
 let factsUl = $("<ul class='factsUl'>");
 let searchForm = $("form");
 let searchContent = $(".searchContent");
 let searchContentUl = $("<ul class='contentUl'>");
+const giphyKey = "gY3zrTqndTT0ezYrpQwRhwMMv1DTt6pF";
+let planetsWav = new Audio("./assets/sound/planets.wav");
+let peopleWav = new Audio("./assets/sound/people.wav");
+let starshipsWav = new Audio("./assets/sound/starships.wav");
+let speciesWav = new Audio("./assets/sound/species.wav");
+let filmsWav = new Audio("./assets/sound/films.wav");
 
 function setSearchResults(response) {
     searchContentUl.empty();
@@ -74,8 +80,40 @@ function getRandQuote() {
     }).then(setRandQuote);
 };
 
+function playSound(event) {
+    let btn = $(this).data().type;
+    switch (btn) {
+        case "planets":
+            planetsWav.play();
+            planetsWav.currentTime=0;
+            break;
+
+        case "people":
+            peopleWav.play();
+            peopleWav.currentTime=0;
+            break;
+
+        case "starships":
+            starshipsWav.play();
+            starshipsWav.currentTime=0;
+            break;
+
+        case "species":
+            speciesWav.play();
+            speciesWav.currentTime=0;
+            break; 
+
+        case "films":
+            filmsWav.play();
+            filmsWav.currentTime=0;
+            break; 
+        default:
+            break;
+    };
+};
+
 //running api call to get random quote.
-getRandQuote();
+// getRandQuote();
 
 //updating factSection with random facts.
 getRandomFacts();
@@ -87,18 +125,46 @@ btnFacts.click(function(event) {
 
 $(document).on("click", ".uk-button-small", swapiUrl);
 
-var giphyURL = "https://api.giphy.com/v1/gifs/search?q=" + searchInput + "&api_key=gY3zrTqndTT0ezYrpQwRhwMMv1DTt6pF" + "&limit=5";
+$(document).on("click", ".uk-button-small", getGiphy);
+
+$(document).on("click", ".uk-button-small", playSound);
+
+function giphyUrl(query, offset) {
+    let baseUrl = "https://api.giphy.com/v1/gifs/search?";
+    let params = {
+        api_key: giphyKey,
+        q: query,
+        limit: 5,
+        offset: offset
+    };
+    let url = baseUrl + $.param(params);
+    return url;
+}
+
+
+function getGiphy(event) {
+    
+    let query;
+    searchInput.val() ? query = searchInput.val() : query = "star+wars";
+    let offset = 5;
+    url = giphyUrl(query,offset);
+    
     $.ajax({
-        url: giphyURL,
+        url: url,
         method: "GET"
     }).then(function(response) {
         console.log(response);
-        console.log(response.data[0].images.fixed_height.url);
+        // $.each(response.data, function(index,value) {
+
+        // });
+        // console.log(response.data[0].images.fixed_height.url);
         //   Depending on our approach... this could use this or a 'for' loop. 
-        var imageFinal = (response.data[0].images.fixed_height.url);
-        console.log("ImageFinal = " + imageFinal);
-        var insertImg = $("#??whatever??");
-        var image = $("<img>").attr("src", imageFinal);
-        insertImg.append(image);
-        console.log("Here is the link: " + giphyURL);
+        // var imageFinal = (response.data[0].images.fixed_height.url);
+        // console.log("ImageFinal = " + imageFinal);
+        // var insertImg = $("#??whatever??");
+        // var image = $("<img>").attr("src", imageFinal);
+        // insertImg.append(image);
+        // console.log("Here is the link: " + giphyURL);
     });
+}
+
