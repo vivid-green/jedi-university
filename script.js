@@ -1,3 +1,4 @@
+
 var searchInput = $(".uk-input");
 var btnPlanet = $("#btnPlanet");
     btnPlanet.data("type", "planets");
