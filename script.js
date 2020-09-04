@@ -1,3 +1,4 @@
+
 var searchInput = $(".uk-input");
 var btnPlanet = $("#btnPlanet");
 var btnPeople = $("#btnPeople");
