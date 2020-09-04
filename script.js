@@ -1,9 +1,14 @@
 var searchInput = $(".uk-input");
 var btnPlanet = $("#btnPlanet");
+    btnPlanet.data("type", "planets");
 var btnPeople = $("#btnPeople");
+    btnPeople.data("type", "people");
 var btnShips = $("#btnShips");
+    btnShips.data("type", "starships");
 var btnSpecies = $("#btnSpecies");
+    btnSpecies.data("type", "species");
 var btnMovies = $("#btnMovies");
+    btnMovies.data("type", "films");
 var randQuote = $("#randQuote");
 var randFacts = $("#factSection");
 var btnFacts = $("#btnFacts");
@@ -26,16 +31,7 @@ function setSearchResults(response) {
 function swapiUrl(event) {
     event.preventDefault();
     let baseUrl = "http://swapi.dev/api/";
-    let endpoint = this.id.replace("btn", "").toLowerCase();
-    if(endpoint === "planet") {
-        endpoint = endpoint + "s";
-    };
-    if(endpoint === "movies") {
-        endpoint = "films";
-    };
-    if(endpoint === "ships") {
-        endpoint = "starships";
-    };
+    let endpoint = $(this).data().type;
     let searchParam = searchInput.val();
     let finalUrl = baseUrl + endpoint + "/?search=" + searchParam;
     $.ajax({
@@ -50,7 +46,7 @@ function getRandomFacts() {
     let randomChoices = [];
     for(i = 0; i < 5; i++) {
         let randomChoice = Math.floor(Math.random() * facts.length);
-        while(randomChoices.includes(randomChoice) || randomChoice === 5) {
+        while(randomChoices.includes(randomChoice)) {
 
             randomChoice = Math.floor(Math.random() * facts.length);
         }
