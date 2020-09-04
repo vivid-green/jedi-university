@@ -80,7 +80,10 @@ getRandQuote();
 //updating factSection with random facts.
 getRandomFacts();
 
-btnFacts.click(getRandomFacts);
+btnFacts.click(function(event) {
+    event.preventDefault();
+    getRandomFacts();
+});
 
 $(document).on("click", ".uk-button-small", swapiUrl);
 
