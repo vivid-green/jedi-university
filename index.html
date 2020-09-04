@@ -23,10 +23,6 @@
                 <li><a href="./aboutus.html">About Us</a></li>
                 <li><a href="./contactus.html">Contact Us</a></li>
               </ul>
-              <div class="uk-navbar-item">
-                <a class="uk-navbar-toggle uk-hidden@m" data-uk-toggle data-uk-navbar-toggle-icon href="#offcanvas-nav"></a>
-                <a href="#" class="uk-button uk-button-secondary uk-visible@m"><span data-uk-icon="sign-in"></span>SIGN UP</a>
-              </div>
             </div>
           </nav>
         </div>
@@ -35,6 +31,7 @@
         <div class="uk-container uk-container-small">
           <header class="uk-text-center">
             <div class="Jumbotron">
+            </br>
             <Jumbotron>
               <h1 className="display-3">Star Wars - Nerds Only!</h1>
               <p className="lead">Our mission is to continue to educate the world about all things Star Wars and never stop schooling nerds.</p>
@@ -77,14 +74,52 @@
                     </div>
                     <div class=container>
                       <div class="imgSection">
-                        <div class="uk-child-width-1-2@m" uk-grid>
+                        <div class="uk-child-width-1-1" uk-grid>
                             <div>
                                 <div class="uk-card uk-card-default">
                                     <div class="uk-card-media-top">
-                                        <img class="searchImg" src="" alt="">
+                                      <div class="data-uk-slider">
+                                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true">
+                                      <ul class="uk-slider-items uk-slider="autoplay:true uk-grid uk-grid-match uk-height-viewport="offset-top: true; offset-bottom: 30">
+                                          <li class="uk-width-3-4">
+                                              <div class="uk-cover-container">
+                                                  <img class="sliderimg" src="./icons/jedi.png" alt="">
+                                                  <div class="uk-position-center uk-panel"></div>
+                                              </div>
+                                          </li>
+                                            <li class="uk-width-3-4">
+                                              <div class="uk-cover-container">
+                                                <img class="sliderimg" src="./icons/r2d2.png" alt="">
+                                                  <div class="uk-position-center uk-panel"></div>
+                                              </div>
+                                          </li>
+                                          <li class="uk-width-3-4">
+                                              <div class="uk-cover-container">
+                                                  <img class="sliderimg" src="./icons/planet.png" alt="">
+                                                  <div class="uk-position-center uk-panel"></div>
+                                              </div>
+                                          </li>
+                                          <li class="uk-width-3-4">
+                                              <div class="uk-cover-container">
+                                                  <img class="sliderimg" src="./icons/rebel-alliance.png" alt="">
+                                                  <div class="uk-position-center uk-panel"></div>
+                                              </div>
+                                          </li>
+                                          <li class="uk-width-3-4">
+                                              <div class="uk-cover-container">
+                                                  <img class="sliderimg" src="./icons/iconfinder_chewbacca_2981859.png" alt="">
+                                                  <div class="uk-position-center uk-panel"></div>
+                                              </div>
+                                          </li>
+                                      </ul>
+                                      <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                                      <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                                    </div>
+                                    </div>
                                     </div>
                                     <div class="uk-card-body searchContent">
                                         <h3 class="uk-card-title searchTitle">Media Top</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
                                     </div>
                                 </div>
                             </div>
