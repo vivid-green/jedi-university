@@ -113,7 +113,7 @@ function playSound(event) {
 };
 
 //running api call to get random quote.
-// getRandQuote();
+getRandQuote();
 
 //updating factSection with random facts.
 getRandomFacts();
