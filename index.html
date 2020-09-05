@@ -49,94 +49,87 @@
   <p class="uk-width-3-5 uk-margin-auto">
   </p>
   </header>
-
-  <div class="uk-child-width-1-2@s uk-text-center" uk-grid>
-    <div>
-      <div id="searchSection" class="uk-card uk-card-default uk-card-large uk-card-body">
-        <form class="uk-search uk-search-large">
-          <div class="uk-margin">
-            <input class="uk-input" type="text" placeholder="What are you looking for?">
-          </div>
-          <p uk-margin>
-            <button id="btnPlanet" type="submit" class="uk-button uk-button-default uk-button-small">Planets
-              <img src="./icons/planet.png" alt="">
-            </button>
-            <button id="btnPeople" type="submit" class="uk-button uk-button-primary uk-button-small">People
-              <img src="./icons/r2d2.png" alt="">
-            </button>
-            <button id="btnShips" type="submit" class="uk-button uk-button-default uk-button-small">Ships
-              <img src="./icons/star-wars.png" alt="">
-            </button>
-            <button id="btnSpecies" type="submit" class="uk-button uk-button-danger uk-button-small">Species
-              <img src="./icons/iconfinder_chewbacca_2981859.png" alt="">
-            </button>
-            <button id="btnMovies" type="submit" class="uk-button uk-button-default uk-button-small">Movies
-              <img src="./icons/jedi.png" alt="">
-            </button>
-          </p>
-          <div id="factSection" class="uk-container">
-            <button id="btnFacts" class="uk-button uk-button-default uk-button-large">Random Fact!</button>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div>
-      <div class="uk-child-width-1-2@s uk-text-center" uk-grid>
-        <div class="imgSection">
-          <div>
-            <div class="uk-card uk-card-default">
-              <div class="uk-card-media-top">
-                <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true">
-                  <ul class="uk-slider-items uk-grid">
-                    <li class="uk-width-3-4">
-                      <div class="uk-panel">
-                        <img src="icons/jedi.png" alt="">
-                        <div class="uk-position-center uk-panel">
-                        </div>
+  <div class="uk-child-width-1-1@s uk-text-center" uk-grid>
+      <div class="imgSection">
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-media-top">
+              <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true">
+                <ul class="uk-slider-items uk-grid">
+                  <li class="uk-width-3-4">
+                    <div class="uk-panel">
+                      <img src="icons/jedi.png" alt="">
+                      <div class="uk-position-center uk-panel">
                       </div>
-                    </li>
-                    <li class="uk-width-3-4">
-                      <div class="uk-panel">
-                        <img src="./icons/planet.png" alt="">
-                        <div class="uk-position-center uk-panel">
-                        </div>
+                    </div>
+                  </li>
+                  <li class="uk-width-3-4">
+                    <div class="uk-panel">
+                      <img src="./icons/planet.png" alt="">
+                      <div class="uk-position-center uk-panel">
                       </div>
-                    </li>
-                    <li class="uk-width-3-4">
-                      <div class="uk-panel">
-                        <img src="./icons/r2d2.png" alt="">
-                        <div class="uk-position-center uk-panel">
-                        </div>
+                    </div>
+                  </li>
+                  <li class="uk-width-3-4">
+                    <div class="uk-panel">
+                      <img src="./icons/r2d2.png" alt="">
+                      <div class="uk-position-center uk-panel">
                       </div>
-                    </li>
-                    <li class="uk-width-3-4">
-                      <div class="uk-panel">
-                        <img src="./icons/rebel-alliance.png" alt="">
-                        <div class="uk-position-center uk-panel">
-                        </div>
+                    </div>
+                  </li>
+                  <li class="uk-width-3-4">
+                    <div class="uk-panel">
+                      <img src="./icons/rebel-alliance.png" alt="">
+                      <div class="uk-position-center uk-panel">
                       </div>
-                    </li>
-                    <li class="uk-width-3-4">
-                      <div class="uk-panel">
-                        <img src="./icons/star-wars.png" alt="">
-                        <div class="uk-position-center uk-panel">
-                        </div>
+                    </div>
+                  </li>
+                  <li class="uk-width-3-4">
+                    <div class="uk-panel">
+                      <img src="./icons/star-wars.png" alt="">
+                      <div class="uk-position-center uk-panel">
                       </div>
-                    </li>
-                  </ul>
-                  <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
-                    uk-slider-item="previous"></a>
-                  <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
-                    uk-slider-item="next"></a>
-                </div>
+                    </div>
+                  </li>
+                </ul>
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+                  uk-slider-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+                  uk-slider-item="next"></a>
               </div>
-              <div class="uk-card-body searchContent">
-                <h3 class="uk-card-title">Media Top</h3>
-              </div>
+            </div>
+            <div class="uk-card-body searchContent">
+              <h3 class="uk-card-title">Media Top</h3>
             </div>
           </div>
         </div>
       </div>
+    <div id="searchSection" class="uk-card uk-card-default uk-card-large uk-card-body">
+      <form class="uk-search uk-search-large">
+        <div class="uk-margin">
+          <input class="uk-input" type="text" placeholder="What are you looking for?">
+        </div>
+        <p uk-margin>
+          <button id="btnPlanet" type="submit" class="uk-button uk-button-default uk-button-small">Planets
+            <img src="./icons/planet.png" alt="">
+          </button>
+          <button id="btnPeople" type="submit" class="uk-button uk-button-primary uk-button-small">People
+            <img src="./icons/r2d2.png" alt="">
+          </button>
+          <button id="btnShips" type="submit" class="uk-button uk-button-default uk-button-small">Ships
+            <img src="./icons/star-wars.png" alt="">
+          </button>
+          <button id="btnSpecies" type="submit" class="uk-button uk-button-danger uk-button-small">Species
+            <img src="./icons/iconfinder_chewbacca_2981859.png" alt="">
+          </button>
+          <button id="btnMovies" type="submit" class="uk-button uk-button-default uk-button-small">Movies
+            <img src="./icons/jedi.png" alt="">
+          </button>
+        </p>
+        <div id="factSection" class="uk-container">
+          <button id="btnFacts" class="uk-button uk-button-default uk-button-large">Random Fact!</button>
+        </div>
+      </form>
     </div>
   </div>
 
