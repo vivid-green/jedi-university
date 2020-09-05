@@ -1,3 +1,11 @@
+body {
+    background: url(assets/img/warp.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 #btnPlanet {
     width: 85px;
     height: 85px;
@@ -46,14 +54,6 @@
 #rebelicon {
     width:175px;
     height:175px;
-}
-.uk-cover-container {
-    height: 550%;
-    width: 100%;
-}
-
-.uk-slider-container {
-   padding: 40px;
 }
 
 .factsUl {
@@ -63,6 +63,14 @@
 .contentUl {
     text-align: left;
     display: inline-block;
+}
+
+.sliderCard {
+    padding: 40px;
+}
+
+.uk-heading-primary {
+    color: white;
 }
 
 
