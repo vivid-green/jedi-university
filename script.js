@@ -22,6 +22,11 @@ let peopleWav = new Audio("./assets/sound/people.wav");
 let starshipsWav = new Audio("./assets/sound/starships.wav");
 let speciesWav = new Audio("./assets/sound/species.wav");
 let filmsWav = new Audio("./assets/sound/films.wav");
+let offset = 0;
+
+
+
+getGiphy();
 
 function setSearchResults(response) {
     searchContentUl.empty();
@@ -69,7 +74,7 @@ function getRandomFacts() {
 //setRandQuote to append random quote string to DOM.
 function setRandQuote(response) {
 //    console.log(response.starWarsQuote);
-   randQuote.append($("<h1>" + response.starWarsQuote + "</h1>"));
+   randQuote.append($("<h2>" + response.starWarsQuote + "</h2>").css("font-style", "italic"));
 }
 
 //getRandQuote api call
@@ -141,12 +146,13 @@ function giphyUrl(query, offset) {
     return url;
 }
 
-
-function getGiphy(event) {
-    
-    let query;
-    searchInput.val() ? query = searchInput.val() : query = "star+wars";
-    let offset = 5;
+function getGiphy(event) {    
+    const img = $(".slider-img img");
+    const query = "star+wars";
+    searchTerm = $(".uk-input").val();
+    let cardTitle = $(".uk-card-title");
+    console.log(searchTerm);
+    searchTerm ? cardTitle.text(searchTerm) : cardTitle.text("Star Wars");
     url = giphyUrl(query,offset);
     
     $.ajax({
@@ -154,17 +160,10 @@ function getGiphy(event) {
         method: "GET"
     }).then(function(response) {
         console.log(response);
-        // $.each(response.data, function(index,value) {
-
-        // });
-        // console.log(response.data[0].images.fixed_height.url);
-        //   Depending on our approach... this could use this or a 'for' loop. 
-        // var imageFinal = (response.data[0].images.fixed_height.url);
-        // console.log("ImageFinal = " + imageFinal);
-        // var insertImg = $("#??whatever??");
-        // var image = $("<img>").attr("src", imageFinal);
-        // insertImg.append(image);
-        // console.log("Here is the link: " + giphyURL);
+        $.each(response.data, function(index,value) {
+            $(img[index]).attr("src", value.images.fixed_height.url).css("border-radius", "10px");
+            offset++;
+        });
     });
 }
 

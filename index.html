@@ -6,26 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta https-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <title>Jedi University</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Bungee+Outline&family=Rubik+Mono+One&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/css/uikit.min.css" />
   <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
   <header class="uk-box-shadow-small" style="background-color: gray">
+    <a class="uk-navbar-item uk-logo" href="#">
+      <img id="rebelicon" src="./icons/rebel-alliance.png" alt="">
+    </a>
     <div class="uk-container uk-container-expand">
       <nav class="uk-navbar" id="navbar" data-uk-navbar>
-        <div class="uk-navbar-left">
-          <a class="uk-navbar-item uk-logo" href="#">
-            <img id="rebelicon" src="./icons/rebel-alliance.png" alt="">
-          </a>
-          <h1>Welcome to Jedi University</h1>
-          <br>
-        </div>
+        <!-- <div class="uk-navbar-left"> -->
+        <hr>
+        <h1 class="welcome uk-text-center">Welcome to Jedi University</h1>
+        <br>
+        <!-- </div> -->
         <div class="uk-navbar-right">
           <ul class="uk-navbar-nav uk-visible@m">
-            <li class="uk-active"><a href="index.html">Home</a></li>
-            <li><a href="./aboutus.html">About Us</a></li>
-            <li><a href="./contactus.html">Contact Us</a></li>
+            <!-- <li class="uk-active"><a href="#">Home</a></li> -->
+            <!-- <li><a href="./aboutus.html">About Us</a></li> -->
+            <!-- <li><a href="./contactus.html">Contact Us</a></li> -->
           </ul>
         </div>
       </nav>
@@ -52,58 +56,55 @@
   </header>
   <div class="uk-child-width-1-3@s uk-text-center" uk-grid>
     <div></div>
-      <!-- <div class="imgSection"> -->
-          <div class="uk-card uk-card-default sliderCard">
-            <div class="uk-card-media-top">
-              <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true">
-                <ul class="uk-slider-items uk-grid">
-                  <li class="uk-width-3-4">
-                    <div class="uk-panel">
-                      <img src="icons/jedi.png" alt="">
-                      <div class="uk-position-center uk-panel">
-                      </div>
-                    </div>
-                  </li>
-                  <li class="uk-width-3-4">
-                    <div class="uk-panel">
-                      <img src="./icons/planet.png" alt="">
-                      <div class="uk-position-center uk-panel">
-                      </div>
-                    </div>
-                  </li>
-                  <li class="uk-width-3-4">
-                    <div class="uk-panel">
-                      <img src="./icons/r2d2.png" alt="">
-                      <div class="uk-position-center uk-panel">
-                      </div>
-                    </div>
-                  </li>
-                  <li class="uk-width-3-4">
-                    <div class="uk-panel">
-                      <img src="./icons/rebel-alliance.png" alt="">
-                      <div class="uk-position-center uk-panel">
-                      </div>
-                    </div>
-                  </li>
-                  <li class="uk-width-3-4">
-                    <div class="uk-panel">
-                      <img src="./icons/star-wars.png" alt="">
-                      <div class="uk-position-center uk-panel">
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
-                  uk-slider-item="previous"></a>
-                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
-                  uk-slider-item="next"></a>
+    <div class="uk-card uk-card-default sliderCard">
+      <div class="uk-card-media-top">
+        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true">
+          <ul class="uk-slider-items uk-grid">
+            <li class="uk-width-3-4">
+              <div class="uk-panel slider-img">
+                <img src="icons/jedi.png" alt="">
+                <div class="uk-position-center uk-panel">
+                </div>
               </div>
-            </div>
-            <div class="uk-card-body searchContent">
-              <h3 class="uk-card-title">Media Top</h3>
-            </div>
-          </div>
-      <!-- </div> -->
+            </li>
+            <li class="uk-width-3-4">
+              <div class="uk-panel slider-img">
+                <img src="./icons/planet.png" alt="">
+                <div class="uk-position-center uk-panel">
+                </div>
+              </div>
+            </li>
+            <li class="uk-width-3-4">
+              <div class="uk-panel slider-img">
+                <img src="./icons/r2d2.png" alt="">
+                <div class="uk-position-center uk-panel">
+                </div>
+              </div>
+            </li>
+            <li class="uk-width-3-4">
+              <div class="uk-panel slider-img">
+                <img src="./icons/rebel-alliance.png" alt="">
+                <div class="uk-position-center uk-panel">
+                </div>
+              </div>
+            </li>
+            <li class="uk-width-3-4">
+              <div class="uk-panel slider-img">
+                <img src="./icons/star-wars.png" alt="">
+                <div class="uk-position-center uk-panel">
+                </div>
+              </div>
+            </li>
+          </ul>
+          <a id="prev" class="uk-position-center-left uk-position-small" href="#" uk-slidenav-previous
+            uk-slider-item="previous"></a>
+          <a id="next" class="uk-position-center-right uk-position-small" href="#" uk-slidenav-next
+            uk-slider-item="next"></a>
+        </div>
+      </div>
+      <div class="uk-card-body searchContent">
+      </div>
+    </div>
   </div>
   <div class="uk-child-width-1-3@s uk-text-center" uk-grid>
     <div></div>
