@@ -70,8 +70,36 @@ body {
 }
 
 .uk-heading-primary {
-    color: white;
+    font-family: 'Bungee Outline', cursive;
+    font-weight: bolder;
+    color: rgb(231, 231, 76);
 }
 
+.uk-card {
+    border-radius: 10px;
+}
 
+.uk-button {
+    border-radius: 10px;
+}
+
+.uk-input {
+    border-radius: 10px;
+}
+
+#prev {
+    color: black;
+}
+
+#next {
+    color: black;
+}
+
+.welcome {
+    font-family: 'Bungee Outline', cursive;
+    color: black;
+    font-weight: bolder;
+    text-align: center;
+    /* padding: 5px; */
+}
 
