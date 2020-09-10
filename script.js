@@ -1,3 +1,4 @@
+// Creating variables containing html elements.
 let searchInput = $(".uk-input");
 let btnPlanet = $("#btnPlanet");
     btnPlanet.data("type", "planets");
@@ -16,7 +17,7 @@ let factsUl = $("<ul class='factsUl'>");
 let searchForm = $("form");
 let searchContent = $(".searchContent");
 searchContent.append(
-    "<p>The Force is what gives a Jedi his power. It's an energy field created by all living things. It surrounds us and penetrates us. It binds the galaxy together. There is much to learn young padawan. Try searching below to learn about key star wars terms. You can search by planets, people, ships, species and films to educate yourself about all things star wars.</p>"
+    "<p>\"The Force is what gives a Jedi his power. It's an energy field created by all living things. It surrounds us and penetrates us. It binds the galaxy together.\" -Obi-Wan Kenobi; There is much to learn young padawan. Try searching below to learn about key Star Wars terms. You can search by Planets, People, Ships, Species and Films to educate yourself about all things Star Wars.</p>"
 );
 let searchContentUl = $("<ul class='contentUl'>");
 const giphyKey = "gY3zrTqndTT0ezYrpQwRhwMMv1DTt6pF";
@@ -27,10 +28,10 @@ let speciesWav = new Audio("./assets/sound/species.wav");
 let filmsWav = new Audio("./assets/sound/films.wav");
 let offset = 0;
 
-
-
+//Invoking function to get gifs from giphy.
 getGiphy();
 
+//Sets SWAPI data to the searchContent slider card.
 function setSearchResults(response, endpoint, searchParam) {
     searchContent.empty();
     searchContentUl.empty();
@@ -45,6 +46,7 @@ function setSearchResults(response, endpoint, searchParam) {
             }
         });
     } else {
+        //Creating modal and triggering on empty SWAPI response.results object.
         let modal = $("<div id='modal-close-outside' uk-modal>");
         modal.empty();
         let modalBody = $("<div class='uk-modal-dialog uk-modal-body'>");
@@ -75,7 +77,7 @@ function setSearchResults(response, endpoint, searchParam) {
         UIkit.modal(modal).show();
     };
 }
-
+//Ajax call to get SWAPI data from form input.
 function swapiUrl(event) {
     event.preventDefault();
     let baseUrl = "https://swapi.dev/api/";
@@ -94,7 +96,7 @@ function swapiUrl(event) {
     });
 }
 
-//randomly selects facts from facts.js
+//Randomly selects facts from facts.js
 function getRandomFacts() {
     factsUl.empty();
     let randomChoices = [];
@@ -110,19 +112,19 @@ function getRandomFacts() {
     randFacts.append(factsUl);
 };
 
-//setRandQuote to append random quote string to DOM.
+//Sets random quote to page header from quote api response.
 function setRandQuote(response) {
    randQuote.append($("<h2>" + response.starWarsQuote + "</h2>").css("font-style", "italic"));
 }
 
-//getRandQuote api call
+//Ajax call to get random quote from quote api.
 function getRandQuote() {
     $.ajax({
         url: "https://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote",
         method: "GET"
     }).then(setRandQuote);
 };
-
+//Plays sounds respective to search button clicked.
 function playSound(event) {
     let btn = $(this).data().type;
     switch (btn) {
@@ -155,23 +157,24 @@ function playSound(event) {
     };
 };
 
-//running api call to get random quote.
+//Running api call to get random quote.
 getRandQuote();
 
-//updating factSection with random facts.
+//Updating factSection with random facts.
 getRandomFacts();
 
+//Listens for btn clicks to populate random facts section.
 btnFacts.click(function(event) {
     event.preventDefault();
     getRandomFacts();
 });
-
+//Listens for search button click and fires off api call to get SWAPI data based on the type of button clicked.
 $(document).on("click", ".uk-button-small", swapiUrl);
-
+//Listening for search button click to fire off api call to get giphy images.
 $(document).on("click", ".uk-button-small", getGiphy);
-
+//Listening for search button click to invoke the playSound function to play the respective sounds based on the data for the button clicked.
 $(document).on("click", ".uk-button-small", playSound);
-
+//builds url for giphy api call.
 function giphyUrl(query, offset) {
     let baseUrl = "https://api.giphy.com/v1/gifs/search?";
     let params = {
@@ -183,7 +186,7 @@ function giphyUrl(query, offset) {
     let url = baseUrl + $.param(params);
     return url;
 }
-
+//Ajax call to get giphy images related to star wars.
 function getGiphy(event) {    
     const img = $(".slider-img img");
     const query = "star+wars";
@@ -202,4 +205,3 @@ function getGiphy(event) {
         });
     });
 }
-
