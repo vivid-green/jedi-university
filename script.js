@@ -15,6 +15,9 @@ let btnFacts = $("#btnFacts");
 let factsUl = $("<ul class='factsUl'>");
 let searchForm = $("form");
 let searchContent = $(".searchContent");
+searchContent.append(
+    "<p>The Force is what gives a Jedi his power. It's an energy field created by all living things. It surrounds us and penetrates us. It binds the galaxy together. There is much to learn young padawan. Try searching below to learn about key star wars terms. You can search by planets, people, ships, species and films to educate yourself about all things star wars.</p>"
+);
 let searchContentUl = $("<ul class='contentUl'>");
 const giphyKey = "gY3zrTqndTT0ezYrpQwRhwMMv1DTt6pF";
 let planetsWav = new Audio("./assets/sound/planets.wav");
@@ -28,19 +31,49 @@ let offset = 0;
 
 getGiphy();
 
-function setSearchResults(response) {
+function setSearchResults(response, endpoint, searchParam) {
+    searchContent.empty();
     searchContentUl.empty();
-    searchContent.append(searchContentUl);
-    delete response.results[0].created;
-    delete response.results[0].edited;
-    delete response.results[0].url;
-    $.each(response.results[0], function(index,value) {
-        if(!Array.isArray(value)) {
-
-            searchContentUl.append($("<li>" + index + ": " + value + "</li>"));
-            // console.log(index + ": " + value);
+    if(response.count) {
+        searchContent.append(searchContentUl);
+        delete response.results[0].created;
+        delete response.results[0].edited;
+        delete response.results[0].url;
+        $.each(response.results[0], function(index,value) {
+            if(!Array.isArray(value)) {
+                searchContentUl.append($("<li>" + index + ": " + value + "</li>"));
+            }
+        });
+    } else {
+        let modal = $("<div id='modal-close-outside' uk-modal>");
+        modal.empty();
+        let modalBody = $("<div class='uk-modal-dialog uk-modal-body'>");
+        let modalBtn = $("<button class='uk-modal-close-outside' type='button' uk-close></button>");
+        let modalTitle = $("<h2 class='uk-modal-title'>Force Disturbance</h2>");
+        let modalGif = $("<img src='./assets/img/jedi-mind-trick.gif'/>");
+        switch (endpoint) {
+            case "planets":
+                endpoint = "planet";
+                break;
+            case "people":
+                endpoint = "person";
+                break;
+            case "starships":
+                endpoint = "starship";
+                break;
+            case "species":
+                endpoint = "species";
+                break;              
+            default:
+                endpoint = "film";
+                break;
         }
-    })
+        let modalP = $("<p>This is not the " + endpoint + " you are looking for. " + searchParam.charAt(0).toUpperCase() + searchParam.slice(1) + " is not a " + endpoint + " in a galaxy far, far away.</p>");
+        modal.append(modalBody);
+        modalBody.append(modalBtn,modalTitle,modalGif,modalP);
+        console.log(modal);
+        UIkit.modal(modal).show();
+    };
 }
 
 function swapiUrl(event) {
@@ -51,8 +84,14 @@ function swapiUrl(event) {
     let finalUrl = baseUrl + endpoint + "/?search=" + searchParam;
     $.ajax({
         url: finalUrl,
-        method: "GET"
-    }).then(setSearchResults);
+        method: "GET",
+        success: function(response) {
+            setSearchResults(response, endpoint, searchParam);
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
 }
 
 //randomly selects facts from facts.js
@@ -73,7 +112,6 @@ function getRandomFacts() {
 
 //setRandQuote to append random quote string to DOM.
 function setRandQuote(response) {
-//    console.log(response.starWarsQuote);
    randQuote.append($("<h2>" + response.starWarsQuote + "</h2>").css("font-style", "italic"));
 }
 
@@ -151,7 +189,6 @@ function getGiphy(event) {
     const query = "star+wars";
     searchTerm = $(".uk-input").val();
     let cardTitle = $(".uk-card-title");
-    console.log(searchTerm);
     searchTerm ? cardTitle.text(searchTerm) : cardTitle.text("Star Wars");
     url = giphyUrl(query,offset);
     
@@ -159,7 +196,6 @@ function getGiphy(event) {
         url: url,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
         $.each(response.data, function(index,value) {
             $(img[index]).attr("src", value.images.fixed_height.url).css("border-radius", "10px");
             offset++;
