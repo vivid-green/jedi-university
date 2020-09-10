@@ -15,6 +15,9 @@ let btnFacts = $("#btnFacts");
 let factsUl = $("<ul class='factsUl'>");
 let searchForm = $("form");
 let searchContent = $(".searchContent");
+searchContent.append(
+    "<p>The Force is what gives a Jedi his power. It's an energy field created by all living things. It surrounds us and penetrates us. It binds the galaxy together. There is much to learn young padawan. Try searching below to learn about key star wars terms. You can search by planets, people, ships, species and films to educate yourself about all things star wars.</p>"
+);
 let searchContentUl = $("<ul class='contentUl'>");
 const giphyKey = "gY3zrTqndTT0ezYrpQwRhwMMv1DTt6pF";
 let planetsWav = new Audio("./assets/sound/planets.wav");
@@ -29,6 +32,7 @@ let offset = 0;
 getGiphy();
 
 function setSearchResults(response, endpoint, searchParam) {
+    searchContent.empty();
     searchContentUl.empty();
     if(response.count) {
         searchContent.append(searchContentUl);
@@ -64,7 +68,7 @@ function setSearchResults(response, endpoint, searchParam) {
                 endpoint = "film";
                 break;
         }
-        let modalP = $("<p>This is not the " + endpoint + " you are looking for. " + searchParam.charAt(0).toUpperCase() + searchParam.slice(1) + ", is not a " + endpoint + " in a galaxy far, far away.</p>");
+        let modalP = $("<p>This is not the " + endpoint + " you are looking for. " + searchParam.charAt(0).toUpperCase() + searchParam.slice(1) + " is not a " + endpoint + " in a galaxy far, far away.</p>");
         modal.append(modalBody);
         modalBody.append(modalBtn,modalTitle,modalGif,modalP);
         console.log(modal);
