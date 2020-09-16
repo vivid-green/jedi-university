@@ -14,9 +14,9 @@ This is a searchable, interactive website to give you random facts, targeted sta
 Uikit, jQuery, SWAPI (Star Wars API), GIPHY API, HTML, CSS, JavaScript.
 
 # Collaborators
-Scot Woodland | scotwoodland@hotmail.com
-Lauren Drolett | laurendrolett@gmail.com
-Amanda Greaves | amandamgreavess@gmail.com
+Scot Woodland | scotwoodland@hotmail.com <br />
+Lauren Drolett | laurendrolett@gmail.com <br />
+Amanda Greaves | amandamgreavess@gmail.com <br />
 
 
 
